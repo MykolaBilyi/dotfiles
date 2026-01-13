@@ -1,0 +1,14 @@
+IgnoreUnknown UseKeychain
+
+Include ~/.ssh/config.d/*.conf
+Include ~/.ssh/config.local
+
+Host *
+  ServerAliveInterval 30
+  ServerAliveCountMax 3
+  ForwardAgent no
+  AddKeysToAgent yes
+
+{{- if ne .chezmoi.username "mykola" }}
+  User mykola
+{{- end }}
