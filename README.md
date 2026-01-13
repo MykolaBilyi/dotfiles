@@ -13,3 +13,9 @@ chezmoi init git@github.com:MykolaBilyi/dotfiles.git
 ```bash
 chezmoi apply
 ```
+
+## Encryption
+
+```
+age-keygen -o ~/.config/chezmoi/age.key
+```
