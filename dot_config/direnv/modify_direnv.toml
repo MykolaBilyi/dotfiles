@@ -1,0 +1,8 @@
+#!/bin/sh
+
+cat << EOF
+[global]
+hide_env_diff = true
+log_format = "\u001b[2mdirenv: %s\u001b[0m"
+EOF
+cat | awk '/^\[whitelist\]/{flag=1} /^\[/ && !/^\[whitelist\]/{flag=0} flag'
