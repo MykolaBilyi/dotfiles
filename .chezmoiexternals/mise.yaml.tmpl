@@ -1,0 +1,9 @@
+{{- if not (lookPath "mise") -}}
+{{- $OS := .chezmoi.os -}}
+{{- $ARCH := eq .chezmoi.arch "amd64" | ternary "x64" .chezmoi.arch -}}
+".local/bin/mise":
+  type: archive-file
+  executable: true
+  path: mise/bin/mise
+  url: {{ gitHubLatestReleaseAssetURL "jdx/mise" (printf "mise-*-%s-%s-musl.tar.xz" $OS $ARCH) | quote }}
+{{- end -}}

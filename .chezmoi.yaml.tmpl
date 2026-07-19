@@ -3,3 +3,13 @@ age:
   identity: ~/.config/chezmoi/key.txt
   recipients:
     - "age10l6mn895x4vn0f9a7shjlkswjj7dk7ru5c0tdp92akvn0gu9qgjsacmy88"
+
+data:
+  osid:
+    - {{ .chezmoi.os | quote }}
+    {{- if hasKey .chezmoi.osRelease "id" }}
+    - {{ .chezmoi.osRelease.id | quote }}
+      {{- range get .chezmoi.osRelease "idLike" | splitList " " | compact }}
+    - {{ . | quote }}
+      {{- end }}
+    {{- end }}
