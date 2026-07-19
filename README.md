@@ -2,6 +2,17 @@
 
 This repository contains my dotfiles managed by [chezmoi](https://chezmoi.io/).
 
+## Notes
+
+### Local machine differneces
+
+Differences in environment, tools, etc. can be set as a local [mise] config override, e.g. `~/.config/mise/config.local.toml`
+
+```toml
+[env]
+USER = 'mykola'
+```
+
 ## Tasks
 
 on a fresh install you need to start with `init`
@@ -21,3 +32,5 @@ Apply config changes to the system
 ```bash
 chezmoi apply
 ```
+
+[mise]: https://mise.jdx.dev
