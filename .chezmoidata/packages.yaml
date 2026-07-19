@@ -1,0 +1,7 @@
+packages:
+  linux:
+    apt:
+    - 'fzf'
+  android:
+    pkg:
+    - 'fzf'

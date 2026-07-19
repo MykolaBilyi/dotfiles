@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# packages.yaml hash: {{ include ".chezmoidata/packages.yaml" | sha256sum }}
+{{ if has "linux"  .osid -}}
+  {{- if has "debian" .osid }}
+    sudo apt update
+    sudo apt install -y {{ range .packages.linux.apt -}}{{ . | quote }} {{ end -}}
+  {{ end -}}
+{{ else if has "android" .osid }}
+    pkg install -y {{ range .packages.android.pkg -}}{{ . | quote }} {{ end -}}
+{{- end }}
