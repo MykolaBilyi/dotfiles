@@ -1,4 +1,14 @@
 [tools]
+fzf = "latest"
+
+[tool_alias]
+fzf = "github:junegunn/fzf"
+
+[tools."github:junegunn/fzf"]
+version = "latest"
+
+[tools."github:junegunn/fzf".platforms]
+linux-arm = { asset_pattern = "fzf-{{ version }}-{{ os() }}_armv7.tar.gz" }
 
 [shell_alias]
 ll = "ls -alF"
