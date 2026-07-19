@@ -10,3 +10,11 @@ age:
 data:
   name: {{ $name | quote }}
   email: {{ $email | quote }}
+  osid:
+    - {{ .chezmoi.os | quote }}
+    {{- if hasKey .chezmoi.osRelease "id" }}
+    - {{ .chezmoi.osRelease.id | quote }}
+      {{- range get .chezmoi.osRelease "idLike" | splitList " " | compact }}
+    - {{ . | quote }}
+      {{- end }}
+    {{- end }}
