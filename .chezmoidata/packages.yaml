@@ -2,3 +2,4 @@ packages:
   android:
     termux:
     - mise
+    - starship
