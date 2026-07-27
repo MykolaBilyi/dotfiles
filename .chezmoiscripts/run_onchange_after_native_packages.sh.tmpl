@@ -1,0 +1,5 @@
+{{ if eq .chezmoi.os "android" -}}
+#!/bin/sh
+
+pkg install {{ range .packages.android.termux -}}{{ . | quote }} {{ end -}}
+{{ end -}}
