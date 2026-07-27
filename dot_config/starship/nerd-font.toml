@@ -1,0 +1,224 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[](color_bg6)\
+$os\
+[](fg:color_bg6 bg:color_bg1)\
+$username\
+$hostname\
+[](fg:color_bg1 bg:color_bg2)\
+$directory\
+[](fg:color_bg2 bg:color_bg3)\
+$git_branch\
+$git_status\
+[](fg:color_bg3 bg:color_bg4)\
+$c\
+$cpp\
+$rust\
+$golang\
+$nodejs\
+$bun\
+$php\
+$java\
+$kotlin\
+$haskell\
+$python\
+$terraform\
+[](fg:color_bg4 bg:color_bg5)\
+$docker_context\
+[](fg:color_bg5 bg:color_bg6)\
+$time\
+$cmd_duration\
+[ ](fg:color_bg6)\
+$line_break$character"""
+
+palette = 'monokai'
+
+[palettes.gruvbox_dark]
+color_fg0 = '#fbf1c7'
+color_bg1 = '#3c3836'
+color_bg3 = '#665c54'
+color_blue = '#458588'
+color_aqua = '#689d6a'
+color_green = '#98971a'
+color_orange = '#d65d0e'
+color_purple = '#b16286'
+color_red = '#cc241d'
+color_yellow = '#d79921'
+
+[palettes.monokai]
+color_white = '#F8F8F2'
+color_yellow = '#E6DB74'
+color_green = '#A6E22E'
+color_orange = '#FD971F'
+color_purple = '#AE81FF'
+color_pink = '#F92672'
+color_blue = '#66D9EF'
+color_black = '#272822'
+
+color_success = '#A6E22E'
+color_danger = '#F92672'
+color_info = '#AE81FF'
+color_warning = '#E6DB74'
+
+color_fglight = '#F8F8F2'
+color_fgdark = '#75715E'
+
+color_bg1 = '#d65d0e'
+color_bg2 = '#d79921'
+color_bg3 = '#689d6a'
+color_bg4 = '#458588'
+color_bg5 = '#75715E'
+color_bg6 = '#3c3836'
+
+[os]
+disabled = false
+format = '[$symbol ]($style)'
+style = "bg:color_bg6 fg:color_fglight"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "[󰣭](bg:color_bg6 fg:#A4C639)"
+Macos = "󰀵"
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = "[](bg:color_bg6 fg:#3DDC84)"
+AOSC = ""
+Arch = "󰣇"
+Artix = "󰣇"
+EndeavourOS = ""
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+Pop = ""
+
+[username]
+show_always = false
+style_user = "bg:color_bg1 fg:color_black"
+style_root = "bg:color_bg1 fg:color_black"
+format = '[ $user ]($style)'
+
+[hostname]
+ssh_only = true
+ssh_symbol = "🌐 "
+format = '[$ssh_symbol$hostname ]($style)'
+aliases = { "localhost" = "termux" }
+style = "bg:color_bg1 fg:color_black"
+
+[directory]
+style = "fg:color_fgdark bg:color_bg2"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"projects" = "󰲋 "
+
+[git_branch]
+symbol = ""
+style = "bg:color_bg3 fg:color_fgdark"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:color_bg3 fg:color_fgdark"
+format = '[$all_status$ahead_behind ]($style)'
+modified = '[!](fg:color_danger bg:color_bg3)'
+
+[nodejs]
+symbol = ""
+style = "bg:color_bg4"
+format = '[[ $symbol( $version) ](fg:color_fglight bg:color_bg4)]($style)'
+
+[bun]
+symbol = ""
+style = "bg:color_bg4"
+format = '[[ $symbol( $version) ](fg:color_fglight bg:color_bg4)]($style)'
+
+[c]
+symbol = " "
+style = "bg:color_bg4"
+format = '[[ $symbol( $version) ](fg:color_fglight bg:color_bg4)]($style)'
+
+[cpp]
+symbol = " "
+style = "bg:color_bg4"
+format = '[[ $symbol( $version) ](fg:color_fglight bg:color_bg4)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:color_bg4"
+format = '[[ $symbol( $version) ](fg:color_fglight bg:color_bg4)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:color_bg4"
+format = '[[ $symbol( $version) ](fg:color_fglight bg:color_bg4)]($style)'
+
+[php]
+symbol = ""
+style = "bg:color_bg4"
+format = '[[ $symbol( $version) ](fg:color_fglight bg:color_bg4)]($style)'
+
+[java]
+symbol = ""
+style = "bg:color_bg4"
+format = '[[ $symbol( $version) ](fg:color_fglight bg:color_bg4)]($style)'
+
+[kotlin]
+symbol = ""
+style = "bg:color_bg4"
+format = '[[ $symbol( $version) ](fg:color_fglight bg:color_bg4)]($style)'
+
+[haskell]
+symbol = ""
+style = "bg:color_bg4"
+format = '[[ $symbol( $version) ](fg:color_fglight bg:color_bg4)]($style)'
+
+[python]
+symbol = ""
+style = "bg:color_bg4"
+format = '[[ $symbol( $version) ](fg:color_fglight bg:color_bg4)]($style)'
+
+[terraform]
+symbol = "[](fg:#844FBA bg:color_bg4)"
+style = "bg:color_bg4"
+format = '[[ $symbol $workspace ](fg:color_fglight bg:color_bg4)]($style)'
+
+[docker_context]
+symbol = ""
+style = "bg:color_bg5"
+format = '[[ $symbol( $context) ](fg:color_black bg:color_bg5)]($style)'
+
+[time]
+disabled = true
+time_format = "%R"
+style = "fg:color_fgdark bg:color_bg6"
+format = "[  $time]($style)"
+
+[cmd_duration]
+style = "fg:color_fgdark bg:color_bg6"
+format = "[ 󰔛 $duration]($style)"
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[❯](bold fg:color_success)'
+error_symbol = '[❯](bold fg:color_danger)'
+vimcmd_symbol = '[❮](bold fg:color_success)'
+vimcmd_replace_one_symbol = '[❮](bold fg:color_info)'
+vimcmd_replace_symbol = '[❮](bold fg:color_info)'
+vimcmd_visual_symbol = '[❮](bold fg:color_warning)'
