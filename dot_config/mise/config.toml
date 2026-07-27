@@ -1,14 +1,22 @@
 [tools]
 fzf = "latest"
+starship = "latest"
 
 [tool_alias]
 fzf = "github:junegunn/fzf"
+starship = "github:starship/starship"
 
 [tools."github:junegunn/fzf"]
 version = "latest"
 
 [tools."github:junegunn/fzf".platforms]
 linux-arm = { asset_pattern = "fzf-{{ version }}-{{ os() }}_armv7.tar.gz" }
+
+[tools."github:starship/starship"]
+version = "latest"
+
+[tools."github:starship/starship".platforms]
+linux-arm = { asset_pattern = "starship-{{ arch() }}-unknown-{{ os() }}-musleabihf.tar.gz" }
 
 [shell_alias]
 ll = "ls -alF"

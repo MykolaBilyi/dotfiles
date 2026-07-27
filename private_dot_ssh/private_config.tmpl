@@ -8,6 +8,7 @@ Host *
   ServerAliveCountMax 3
   ForwardAgent no
   AddKeysToAgent yes
+  SendEnv TERM_FEATURES
 
 {{- if ne .chezmoi.username "mykola" }}
   User mykola
