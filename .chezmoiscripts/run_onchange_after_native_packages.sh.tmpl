@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# packages.yaml hash: {{ include ".chezmoidata/packages.yaml" | sha256sum }}
+{{ if eq .chezmoi.os "android" -}}
+pkg install {{ range .packages.android.termux -}}{{ . | quote }} {{ end -}}
+{{ end -}}
