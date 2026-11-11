@@ -1,0 +1,19 @@
+{
+  "providers": {
+    "private": {
+      "baseUrl": "https://llm.yrij.bilyi.dev/v1",
+      "api": "openai-completions",
+      "apiKey": "!mise run --quiet get-llm-key pi-coding-agent",
+      "models": [
+        {
+          "id": "default",
+          "reasoning": true,
+          "input": ["text"],
+          "thinkingLevelMap": { "xhigh": "max" },
+          "contextWindow": 1000000,
+          "maxTokens": 384000
+        }
+      ]
+    }
+  }
+}
