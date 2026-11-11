@@ -1,6 +1,7 @@
 [tools]
 fzf = "latest"
 starship = "latest"
+aichat = { version = "latest", lazy = true }
 
 [tool_alias]
 fzf = "github:junegunn/fzf"
@@ -20,3 +21,14 @@ linux-arm = { asset_pattern = "starship-{{ arch() }}-unknown-{{ os() }}-musleabi
 
 [shell_alias]
 ll = "ls -alF"
+aichat = "HYDRA_API_KEY=$(mise run --quiet get-llm-key aichat) aichat"
+
+[task_templates."llm-secret"]
+run = "echo ${LLM_API_KEY?}"
+usage = '''
+arg "<client>" help="Client name to lookup secret for"
+'''
+description = "Lookup LLM API key from secret-tool"
+
+[tasks.get-llm-key]
+extends = "llm-secret"

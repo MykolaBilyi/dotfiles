@@ -13,6 +13,17 @@ Differences in environment, tools, etc. can be set as a local [mise] config over
 USER = 'mykola'
 ```
 
+### LLM Key
+
+Some apps (like [aichat]) need an LLM API key to be functional.
+You can either set `LLM_API_KEY` env variable, or do a [mise] task `get-llm-key` override. E.g.
+
+```toml
+[tasks.get-llm-key]
+extends = "llm-secret"
+run = "secret-tool lookup service llm-api-key client ${usage_client?}"
+```
+
 ## Tasks
 
 on a fresh install you need to start with `init`
@@ -51,5 +62,6 @@ input: TERM_FEATURES
 echo "export TERM_FEATURES=\${TERM_FEATURES:-$TERM_FEATURES}" > ~/.bashrc.d/00-term.bashrc 
 ```
 
+[aichat]: https://github.com/sigoden/aichat
 [mise]: https://mise.jdx.dev
 [starship]: https://starship.rs

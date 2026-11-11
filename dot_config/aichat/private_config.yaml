@@ -1,0 +1,13 @@
+# see https://github.com/sigoden/aichat/blob/main/config.example.yaml
+
+model: hydra:default
+clients:
+- type: openai-compatible
+  name: hydra
+  api_base: https://llm.yrij.bilyi.dev/v1
+  models:
+  - name: default
+    max_input_tokens: 1048576
+    max_output_tokens: 393216
+    supports_function_calling: true
+    supports_reasoning: true
